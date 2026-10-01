@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eureca - Cadastros</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Eureca - Tive uma ideia!</h1>
+        <p class="subtitulo">Conhecimento gratuito para transformar vidas.</p>
+    </header>
+
+    <nav>
+        <input type="checkbox" id="menu-toggle">
+
+        <label for="menu-toggle" class="hamburguer">☰</label>
+
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="cadastros.html">Cadastre-se</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="cadastro">
+
+            <h2>Cadastre-se</h2>
+
+            <span class="badge">Cadastro - Aluno e Voluntário</span>
+
+            <p>
+                Preencha o formulário abaixo para se cadastrar na Eureca.
+            </p>
+
+            <div class="alerta">
+                Preencha todos os campos obrigatórios antes de enviar o cadastro.
+            </div>
+
+            <form action="processar_cadastro.php" method="post">
+
+                <fieldset>
+
+                    <legend>Informações Pessoais</legend>
+
+                    <label for="nome">Nome completo:</label>
+                    <input type="text" id="nome" name="nome" required
+                        autocomplete="name" placeholder="Digite seu nome completo">
+
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" required
+                        autocomplete="off" inputmode="numeric"
+                        pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+                        title="Digite o CPF no formato 000.000.000-00"
+                        placeholder="000.000.000-00">
+
+                    <label for="nascimento">Data de nascimento:</label>
+                    <input type="date" id="nascimento" name="nascimento"
+                        required autocomplete="bday">
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Informações de Contato</legend>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required
+                        autocomplete="email" placeholder="Digite seu e-mail">
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required
+                        autocomplete="tel" inputmode="tel"
+                        pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"
+                        title="Digite o telefone no formato (00) 00000-0000"
+                        placeholder="(00) 00000-0000">
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required
+                        autocomplete="address-level2"
+                        placeholder="Digite o nome da sua cidade">
+
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required
+                        autocomplete="postal-code" inputmode="numeric"
+                        pattern="[0-9]{5}-[0-9]{3}"
+                        title="Digite o CEP no formato 00000-000"
+                        placeholder="00000-000">
+
+                    <label for="estado">Estado:</label>
+                    <select id="estado" name="estado" required
+                        autocomplete="address-level1">
+
+                        <option value="">Selecione</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="MG">Minas Gerais</option>
+
+                    </select>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Informações de Acesso</legend>
+
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" required
+                        autocomplete="username"
+                        placeholder="Digite seu usuário">
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required
+                        autocomplete="new-password"
+                        placeholder="Digite sua senha">
+
+                    <label for="confirmar_senha">Confirmar senha:</label>
+                    <input type="password" id="confirmar_senha"
+                        name="confirmar_senha" required
+                        autocomplete="new-password"
+                        placeholder="Confirme sua senha">
+
+                </fieldset>
+
+                <p id="progresso">Campos preenchidos: 0</p>
+
+                <button type="submit">Cadastrar</button>
+
+                <div class="toast">
+                    Confira seus dados antes de cadastrar.
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ONG Eureca. Todos os direitos reservados.</p>
+        <p>Redes sociais: Instagram | Facebook | LinkedIn</p>
+    </footer>
+
+</body>
+
+</html>

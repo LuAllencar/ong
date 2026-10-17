@@ -1,25 +1,42 @@
+
+/* Validação */
 .erro {
-    border: 2px solid red;
+    border: 2px solid var(--erro);
 }
 
 .sucesso {
-    border: 2px solid green;
+    border: 2px solid var(--sucesso);
 }
 
 .mensagem-erro {
-    color: red;
+    color: var(--erro);
     font-size: var(--pequeno);
 }
 
+/* Cores e tamanhos */
 :root {
     --azul-escuro: #0d47a1;
     --azul: #1565c0;
     --azul-claro: #2196f3;
-    --verde: #00838f;
-    --ciano: #00acc1;
-    --texto: #333;
+    --verde: #006064;
+    --ciano: #00838f;
+
+    --texto: #333333;
     --fundo: #f4f9fc;
-    --branco: #fff;
+    --branco: #ffffff;
+
+    --cabecalho: #0d47a1;
+    --texto-cabecalho: #ffffff;
+    --superficie-suave: #e8f5fe;
+    --borda: #d7ecfa;
+    --borda-campo: #b0bec5;
+
+    --erro: #b00020;
+    --sucesso: #006b3c;
+    --foco: #0d47a1;
+
+    --botao: #1565c0;
+    --texto-botao: #ffffff;
 
     --pequeno: 14px;
     --normal: 16px;
@@ -28,6 +45,59 @@
     --titulo: 36px;
 }
 
+/* Modo escuro */
+:root[data-tema="escuro"] {
+    --azul-escuro: #90caf9;
+    --azul: #90caf9;
+    --azul-claro: #90caf9;
+    --verde: #80cbc4;
+    --ciano: #80deea;
+
+    --texto: #ffffff;
+    --fundo: #121212;
+    --branco: #1e1e1e;
+
+    --cabecalho: #1e1e1e;
+    --texto-cabecalho: #ffffff;
+    --superficie-suave: #292929;
+    --borda: #555555;
+    --borda-campo: #aaaaaa;
+
+    --erro: #ff8a80;
+    --sucesso: #80cbc4;
+    --foco: #80deea;
+
+    --botao: #90caf9;
+    --texto-botao: #121212;
+}
+
+/* Alto contraste */
+:root[data-tema="contraste"] {
+    --azul-escuro: #ffff00;
+    --azul: #ffff00;
+    --azul-claro: #000000;
+    --verde: #ffff00;
+    --ciano: #00ffff;
+
+    --texto: #ffffff;
+    --fundo: #000000;
+    --branco: #000000;
+
+    --cabecalho: #000000;
+    --texto-cabecalho: #ffffff;
+    --superficie-suave: #000000;
+    --borda: #ffffff;
+    --borda-campo: #ffffff;
+
+    --erro: #ff8080;
+    --sucesso: #00ff00;
+    --foco: #00ffff;
+
+    --botao: #ffff00;
+    --texto-botao: #000000;
+}
+
+/* Configuração geral */
 * {
     margin: 0;
     padding: 0;
@@ -40,30 +110,60 @@ body {
     color: var(--texto);
 }
 
+/* Cabeçalho */
 header {
-    background-color: var(--azul-claro);
-    color: var(--branco);
+    background-color: var(--cabecalho);
+    color: var(--texto-cabecalho);
     padding: 30px;
     text-align: center;
-
-    /* Flexbox */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 header h1 {
+    color: var(--texto-cabecalho);
     font-size: var(--titulo);
 }
 
+/* Botões de aparência */
+.controles-tema {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.controles-tema span {
+    color: var(--texto-cabecalho);
+}
+
+.controles-tema button {
+    width: auto;
+    margin: 0;
+    padding: 8px 12px;
+    background-color: var(--botao);
+    color: var(--texto-botao);
+    border: 1px solid var(--texto-cabecalho);
+}
+
+.controles-tema button[aria-pressed="true"] {
+    border: 3px solid var(--foco);
+}
+
+.controles-tema button:hover {
+    opacity: 0.85;
+}
+
+/* Navegação */
 nav {
     background-color: var(--branco);
 }
 
 nav ul {
     list-style: none;
-
-    /* Flexbox */
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -80,11 +180,11 @@ nav a:hover {
     color: var(--ciano);
 }
 
+/* Conteúdo principal */
 main {
     width: 90%;
     max-width: 1100px;
     margin: 30px auto;
-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 20px;
@@ -97,6 +197,7 @@ main {
 section {
     grid-column: 1 / 13;
     background-color: var(--branco);
+    color: var(--texto);
     padding: 25px;
 }
 
@@ -117,6 +218,7 @@ img {
     height: auto;
 }
 
+/* Sobre e contato */
 #sobre {
     grid-column: 1 / 9;
 }
@@ -125,16 +227,37 @@ img {
     grid-column: 9 / 13;
 }
 
+#contato,
+#apoio {
+    background-color: var(--branco);
+    color: var(--texto);
+}
+
+#contato h2,
+#contato h3,
+#apoio h2,
+#apoio h3 {
+    color: var(--azul);
+}
+
+#contato p,
+#apoio p {
+    color: var(--texto);
+}
+
 address {
-    background-color: #e8f5fe;
+    background-color: var(--superficie-suave);
+    color: var(--texto);
     padding: 20px;
     font-style: normal;
 }
 
+/* Projetos */
 .projeto {
     grid-column: 1 / 13;
     background-color: var(--fundo);
-    border: 1px solid #d7ecfa;
+    color: var(--texto);
+    border: 1px solid var(--borda);
     padding: 20px;
     margin-top: 20px;
 }
@@ -144,17 +267,19 @@ address {
 }
 
 .projeto a,
-#apoio a {
+#apoio a,
+#contato a {
     display: inline-block;
     margin-top: 15px;
     padding: 10px;
-    background-color: var(--azul);
-    color: var(--branco);
+    background-color: var(--botao);
+    color: var(--texto-botao);
     text-decoration: none;
 }
 
+/* Formulário */
 fieldset {
-    border: 1px solid #d7ecfa;
+    border: 1px solid var(--borda);
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -173,36 +298,42 @@ input,
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #b0bec5;
-}
-
-/* Formulário */
-
-input:focus,
-select:focus {
-    border: 2px solid var(--azul);
-    outline: none;
+    border: 1px solid var(--borda-campo);
+    background-color: var(--branco);
+    color: var(--texto);
 }
 
 input:valid,
 select:valid {
-    border-color: green;
+    border-color: var(--sucesso);
 }
 
 input:invalid,
 select:invalid {
-    border-color: red;
+    border-color: var(--erro);
 }
 
-/* Botão */
+/* Foco do teclado */
+input:focus-visible,
+select:focus-visible,
+nav a:focus-visible,
+.projeto a:focus-visible,
+#apoio a:focus-visible,
+#contato a:focus-visible,
+button:focus-visible,
+.hamburguer:focus-visible {
+    outline: 3px solid var(--foco);
+    outline-offset: 3px;
+}
 
+/* Botões */
 button {
     display: block;
     width: 200px;
     margin: 20px auto;
     padding: 12px;
-    background-color: var(--azul);
-    color: var(--branco);
+    background-color: var(--botao);
+    color: var(--texto-botao);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s, opacity 0.3s;
@@ -210,10 +341,6 @@ button {
 
 button:hover {
     background-color: var(--azul-escuro);
-}
-
-button:focus {
-    outline: 2px solid var(--ciano);
 }
 
 button:active {
@@ -225,32 +352,31 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/* Rodapé */
 footer {
-    background-color: var(--azul-claro);
-    color: var(--branco);
+    background-color: var(--cabecalho);
+    color: var(--texto-cabecalho);
     padding: 20px;
     text-align: center;
-
-    /* Flexbox */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Feedback */
-
+/* Elementos de feedback */
 .badge {
     display: inline-block;
     padding: 5px 10px;
     background-color: var(--ciano);
-    color: var(--branco);
+    color: var(--texto-botao);
     font-size: var(--pequeno);
 }
 
 .alerta {
     padding: 15px;
     margin: 20px 0;
-    background-color: #e8f5fe;
+    background-color: var(--superficie-suave);
+    color: var(--texto);
     border-left: 5px solid var(--azul);
 }
 
@@ -264,9 +390,18 @@ footer {
 }
 
 /* Menu hambúrguer */
-
 #menu-toggle {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+#menu-toggle:focus-visible + .hamburguer {
+    outline: 3px solid var(--foco);
+    outline-offset: 3px;
 }
 
 .hamburguer {
@@ -276,8 +411,7 @@ footer {
     padding: 10px;
 }
 
-/* RESPONSIVIDADE */
-
+/* Responsividade */
 @media (max-width: 1200px) {
     main {
         width: 92%;
@@ -292,7 +426,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
     .hamburguer {
         display: block;
     }
@@ -330,5 +463,9 @@ footer {
 
     button {
         width: 100%;
+    }
+
+    .controles-tema button {
+        width: auto;
     }
 }

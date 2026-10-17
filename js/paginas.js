@@ -1,21 +1,21 @@
 const projetos = [
 
     {
-        imagem: "img/Eureca_cursos.jpg",
+        imagem: "/img/Eureca_cursos.jpg",
         titulo: "Cursos Gratuitos de Tecnologia",
         categoria: "Tecnologia",
         texto: "Disponibilizamos cursos online de programação, inteligência artificial, design, marketing digital e outras áreas para quem deseja aprender sem custo."
     },
 
     {
-        imagem: "img/Eureca_mentoria.jpg",
+        imagem: "/img/Eureca_mentoria.jpg",
         titulo: "Mentoria e Apoio aos Estudantes",
         categoria: "Mentoria",
         texto: "Voluntários compartilham conhecimento por meio de mentorias, plantões de dúvidas e acompanhamento do desenvolvimento dos alunos."
     },
 
     {
-        imagem: "img/Eureca_ebooks.jpg",
+        imagem: "/img/Eureca_ebooks.jpg",
         titulo: "Biblioteca Digital Livre",
         categoria: "Biblioteca",
         texto: "Reunimos apostilas, e-books, videoaulas e materiais educativos gratuitos, acessíveis em qualquer dispositivo e disponíveis para estudo online."
@@ -61,7 +61,7 @@ export const paginas = {
 
             <h2>Sobre a ONG Eureca</h2>
 
-            <img id="eureca-aulas" src="img/Eureca_Aulas_Ficticio.jpg"
+            <img id="eureca-aulas" src="/img/Eureca_Aulas_Ficticio.jpg"
                 alt="Painel da plataforma da ONG Eureca.">
 
             <p>
